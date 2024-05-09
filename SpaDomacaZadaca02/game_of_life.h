@@ -8,7 +8,7 @@ using namespace std;
 class game_of_life {
 private:
 	static const unsigned int STUPACA = 20;
-	static const unsigned int REDAKA = 25; // 3/4 stupaca zbog rezolucije prozora
+	static const unsigned int REDAKA = 25; // 3/4 stupaca zbog rezolucije SFML prozora
 	float cellSize = 40.f; //veličina ćelije u SFML-u
 	bool generacija[REDAKA][STUPACA];
 	bool sljedecaGeneracija[REDAKA][STUPACA];
@@ -34,7 +34,7 @@ private:
 public:
 	game_of_life();
 	void slijedecaGeneracija();
-	void iscrtaj() const; //console
-	void draw(sf::RenderWindow& window) const; //SFML
+	void iscrtaj() const; //console game
+	void draw(sf::RenderWindow& window) const; //SFML game
 };
 #endif

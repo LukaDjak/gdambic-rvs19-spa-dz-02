@@ -120,7 +120,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="game_of_life.cpp" />
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="program.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game_of_life.h" />
