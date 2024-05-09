@@ -1,10 +1,35 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include <string>
+#include <fstream>
+#include "game_of_life.h"
+using namespace std;
 
 int main()
 {
+	game_of_life the_game;
+
+	//---CONSOLE GAME OF LIFE - uncomment the code
+	/*
+	bool dalje;
+		do 
+		{
+			the_game.iscrtaj();
+			the_game.slijedecaGeneracija();
+
+			cout << "Dalje (1/0): ";
+			cin >> dalje;
+			system("CLS");
+		} while (dalje);
+	return 0;
+	*/
+
+	//---SFML GAME OF LIFE
+
+	sf::ContextSettings settings;
+	settings.antialiasingLevel = 8;
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Hello, SFML world!");
 	window.setFramerateLimit(60);
-	//Cvijet cvijet(&window);
 
 	while (window.isOpen())
 	{
@@ -16,9 +41,10 @@ int main()
 		}
 
 		window.clear();
-		//cvijet.draw();
+		the_game.draw(window);
+		the_game.slijedecaGeneracija();
 		window.display();
-	}
 
-	return 0;
+		sf::sleep(sf::seconds(2));
+	}
 }
