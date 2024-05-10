@@ -36,20 +36,22 @@ void game_of_life::slijedecaGeneracija()
             {
                 for (int jj = -1; jj <= 1; jj++) 
                 {
-                    if (!(ii == 0 && jj == 0) && celijaZauzeta(i + ii, j + jj)) 
+                    if (!(ii == 0 && jj == 0) && celijaZauzeta(i + ii, j + jj))
                         neighbors++;
+                    else continue;
                 }
             }
 
             //apply rules of the game
-            sljedecaGeneracija[i][j] = false;
+            
             if ((generacija[i][j] && (neighbors == 2 || neighbors == 3)) || (!celijaZauzeta(i, j) && neighbors == 3))
                 sljedecaGeneracija[i][j] = true;
-
+            else
+                sljedecaGeneracija[i][j] = false;
             /*
             1. a live cell with 2 or 3 live neighbors survives to the next generation
             2. if a cell does not have 2 or 3 live neighbors, it dies
-            2. a dead cell with exactly 3 live neighbors becomes alive in the next generation
+            3. a dead cell with exactly 3 live neighbors becomes alive in the next generation
             */
         }
     }
